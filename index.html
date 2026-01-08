@@ -3,43 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhishek Rawat | Tech Lead</title>
+  <title>Abhishek Rawat | Tech Lead & Backend Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fafafa;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --accent: #2563eb;
+      --bg: #fffef9;
+      --bg-secondary: #faf8f3;
+      --text: #2d2d2d;
+      --muted: #6b6b6b;
+      --accent: #ff6b6b;
+      --accent-secondary: #4ecdc4;
+      --accent-hover: #ee5a52;
       --card: #ffffff;
-      --border: #e5e7eb;
+      --border: #f0ede6;
+      --yellow: #ffe66d;
+      --teal: #4ecdc4;
+      --coral: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
                    Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.8;
+      overflow-x: hidden;
+      font-size: 16px;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 1100px;
       margin: auto;
-      padding: 64px 24px;
-      animation: fadeIn 1s ease;
+      padding: 80px 32px;
+      animation: fadeIn 0.8s ease;
     }
 
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
     }
 
     h2 {
-      margin-top: 72px;
-      margin-bottom: 20px;
-      font-size: 1.4rem;
+      margin-top: 96px;
+      margin-bottom: 32px;
+      font-size: 1.75rem;
+      font-weight: 600;
+      position: relative;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 3px;
+      background: var(--coral);
+      margin-bottom: 16px;
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--text);
     }
 
     p {
@@ -47,13 +86,63 @@
       max-width: 780px;
     }
 
+    /* NAVIGATION */
+    nav {
+      background: rgba(255, 254, 249, 0.95);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .nav-content {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
     /* HERO */
     .hero {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 24px;
-      align-items: center;
-      margin-bottom: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 64px 0 80px 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      position: relative;
+    }
+
+    .hero-image-container {
+      margin-bottom: 32px;
     }
 
     .hero img {
@@ -61,188 +150,704 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid var(--border);
+      border: 3px solid var(--coral);
+      display: block;
+    }
+
+    .hero-content {
+      max-width: 680px;
     }
 
     .subtitle {
       color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
       font-size: 1.05rem;
+      color: var(--muted);
+      margin: 24px 0;
+      max-width: 600px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--coral);
+      color: white;
+    }
+
+    .btn-primary span {
+      position: relative;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-secondary span {
+      position: relative;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .stat-card {
+      background: transparent;
+      padding: 24px 0;
+      border-radius: 0;
+      border: none;
+      border-left: 3px solid var(--coral);
+      padding-left: 20px;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .stat-card:hover {
+      border-left-color: var(--teal);
+      transform: translateX(4px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     /* SKILLS */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .skill-category {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      margin-bottom: 32px;
+    }
+
+    .skill-category h4 {
+      color: var(--text);
+      margin-bottom: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
     .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
     }
 
     .chip {
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
       font-size: 0.85rem;
-      background: var(--card);
+      font-weight: 500;
+      background: white;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      transform: translateY(-1px);
     }
 
     /* CARDS */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
+      border-radius: 12px;
+      padding: 32px;
       margin-bottom: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+      border-color: var(--coral);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 4px 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
     }
 
     .card img {
       width: 100%;
-      border-radius: 10px;
-      margin-top: 16px;
+      border-radius: 12px;
+      margin-top: 20px;
       border: 1px solid var(--border);
+      transition: transform 0.3s;
+    }
+
+    .card img:hover {
+      transform: scale(1.02);
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .project-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(4px);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background: var(--coral);
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      color: var(--coral);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-company {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .timeline-description {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .timeline-description ul {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .timeline-description li {
+      margin: 8px 0;
     }
 
     /* LINKS */
+    .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     .links a {
-      margin-right: 18px;
-      color: var(--accent);
+      padding: 12px 24px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
       text-decoration: none;
       font-weight: 500;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .links a:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      transform: translateY(-1px);
     }
 
     footer {
       margin-top: 100px;
-      font-size: 0.85rem;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.9rem;
       color: var(--muted);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
       .hero {
+        text-align: left;
+        padding: 0;
+      }
+
+      .hero img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav .nav-links {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .stats {
         grid-template-columns: 1fr;
-        text-align: center;
+      }
+
+      .container {
+        padding: 40px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-<div class="container">
-
-  <!-- HERO -->
-  <section class="hero">
-    <img src="images/profile.jpg" alt="Abhishek Rawat">
-    <div>
-      <h1>Abhishek Rawat</h1>
-      <div class="subtitle">
-        Tech Lead · Backend & System Architecture
-      </div>
-      <p>
-        I design and own backend systems that prioritize clarity,
-        scalability, and long-term maintainability.
-      </p>
-
-      <div class="skills">
-        <span class="chip">Java</span>
-        <span class="chip">Spring Boot</span>
-        <span class="chip">Microservices</span>
-        <span class="chip">Modulith</span>
-        <span class="chip">System Design</span>
-        <span class="chip">LLMs</span>
-        <span class="chip">RAG</span>
-        <span class="chip">Vector Databases</span>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-content">
+      <div class="logo">AR</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-image-container">
+        <img src="images/profile.jpg" alt="Abhishek Rawat">
+      </div>
+      <div class="hero-content">
+        <h1>Abhishek Rawat</h1>
+        <div class="subtitle">Tech Lead · Backend Architect · System Designer</div>
+        <p class="hero-description">
+          I design and build scalable backend systems that power fintech, healthcare, and enterprise platforms.
+          With 9+ years of experience, I specialize in Java, Spring Boot, microservices architecture, and AI-augmented systems.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary"><span>Get In Touch</span></a>
+          <a href="#projects" class="btn btn-secondary"><span>View Projects</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-number">9+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>About Me</h2>
+    <p>
+      I am a Tech Lead with 9+ years of experience building and evolving backend systems across 
+      fintech, digital banking, supply chain, healthcare, and enterprise platforms. I've led teams 
+      and architected solutions that serve millions of users.
+    </p>
+    <p>
+      My work focuses on backend architecture using Java and Spring Boot, making pragmatic decisions 
+      between microservices and modulith architectures based on domain maturity, team structure, and 
+      operational complexity. I believe in building systems that are maintainable, scalable, and 
+      aligned with business goals.
+    </p>
+    <p>
+      Recently, I've been building AI-augmented enterprise systems where LLMs are integrated responsibly 
+      with governance, access control, and structured data. I'm passionate about leveraging cutting-edge 
+      technology while maintaining engineering excellence.
+    </p>
   </section>
 
-  <!-- ABOUT -->
-  <section>
-    <h2>About</h2>
-    <p>
-      I am a Tech Lead with 9+ years of experience building and evolving
-      backend systems across fintech, digital banking, supply chain,
-      healthcare, and enterprise platforms.
-    </p>
-    <p>
-      My work focuses on backend architecture using Java and Spring Boot,
-      making pragmatic decisions between microservices and modulith
-      architectures based on domain maturity, team structure, and
-      operational complexity.
-    </p>
-    <p>
-      Recently, I’ve been building AI-augmented enterprise systems where
-      LLMs are integrated responsibly with governance, access control,
-      and structured data.
-    </p>
-  </section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h4>Backend & Languages</h4>
+          <div class="skills">
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">Spring Framework</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">GraphQL</span>
+            <span class="chip">Node.js</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Architecture & Design</h4>
+          <div class="skills">
+            <span class="chip">Microservices</span>
+            <span class="chip">Modulith</span>
+            <span class="chip">System Design</span>
+            <span class="chip">Domain-Driven Design</span>
+            <span class="chip">Event-Driven</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>AI & ML</h4>
+          <div class="skills">
+            <span class="chip">LLMs</span>
+            <span class="chip">RAG</span>
+            <span class="chip">Vector Databases</span>
+            <span class="chip">OpenAI API</span>
+            <span class="chip">LangChain</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Data & Infrastructure</h4>
+          <div class="skills">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Redis</span>
+            <span class="chip">Kafka</span>
+            <span class="chip">AWS</span>
+            <span class="chip">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2022 - Present</div>
+          <div class="timeline-company">Tech Lead</div>
+          <div class="timeline-role">Enterprise AI & Backend Systems</div>
+          <div class="timeline-description">
+            <ul>
+              <li>Led development of enterprise AI assistant platform combining LLMs, RAG, and vector databases</li>
+              <li>Architected modulith-based systems serving 10,000+ internal users</li>
+              <li>Implemented role-based access control and governance for AI systems</li>
+              <li>Mentored team of 5 developers on backend best practices and system design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2019 - 2022</div>
+          <div class="timeline-company">Senior Backend Engineer</div>
+          <div class="timeline-role">Fintech & Digital Banking</div>
+          <div class="timeline-description">
+            <ul>
+              <li>Built ACH payment platform processing $100M+ in transactions</li>
+              <li>Developed digital banking backend for mobile app with 500K+ users</li>
+              <li>Designed settlement and reconciliation systems for payment flows</li>
+              <li>Optimized database queries reducing response time by 60%</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2016 - 2019</div>
+          <div class="timeline-company">Backend Developer</div>
+          <div class="timeline-role">Supply Chain & Healthcare</div>
+          <div class="timeline-description">
+            <ul>
+              <li>Developed supply chain management systems for logistics companies</li>
+              <li>Built healthcare data integration platforms with HL7/FHIR standards</li>
+              <li>Implemented microservices architecture for scalable solutions</li>
+              <li>Collaborated with cross-functional teams on API design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
   <!-- PROJECTS -->
-  <section>
-    <h2>Selected Work</h2>
+    <section id="projects">
+      <h2>Featured Projects</h2>
 
-    <div class="card">
-      <h3>Interne — Enterprise AI Assistant</h3>
-      <p>
-        Internal AI platform for policy documents and HR systems,
-        combining LLMs, RAG, vector databases, and role-based access control.
-      </p>
-      <img src="images/interne-architecture.png" alt="Interne Architecture">
-    </div>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Interne — Enterprise AI Assistant</h3>
+            <div class="project-meta">
+              <span>⏱️ 2023 - Present</span>
+              <span>👥 5 Team Members</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Internal AI platform for policy documents and HR systems, combining LLMs, RAG architecture, 
+          vector databases, and role-based access control. Built with Spring Boot modulith pattern for 
+          maintainability and clear domain boundaries.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Vector DB</span>
+          <span class="tag">Modulith</span>
+        </div>
+        <img src="images/interne-architecture.png" alt="Interne Architecture">
+      </div>
 
-    <div class="card">
-      <h3>LinkPay — ACH Payments Platform</h3>
-      <p>
-        Backend systems for US fintech payments, covering transaction,
-        payout, settlement, and reconciliation lifecycles.
-      </p>
-    </div>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>LinkPay — ACH Payments Platform</h3>
+            <div class="project-meta">
+              <span>⏱️ 2021 - 2022</span>
+              <span>💰 $100M+ Processed</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Backend systems for US fintech payments platform covering the complete payment lifecycle: 
+          transaction initiation, validation, payout processing, settlement, and reconciliation. 
+          Handles high-volume transaction processing with strong consistency guarantees.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">AWS</span>
+        </div>
+        <img src="images/linkpay-dashboard.png" alt="LinkPay Dashboard">
+      </div>
 
-    <div class="card">
-      <h3>Niyo App — Digital Banking Backend</h3>
-      <p>
-        Backend services for accounts, transactions, statements,
-        and expense analytics for a mobile banking platform.
-      </p>
-    </div>
-  </section>
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Niyo App — Digital Banking Backend</h3>
+            <div class="project-meta">
+              <span>⏱️ 2020 - 2021</span>
+              <span>👥 500K+ Users</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Backend services for digital banking mobile application including account management, 
+          transaction processing, statement generation, and expense analytics. Microservices 
+          architecture deployed on AWS with Redis caching and PostgreSQL database.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Microservices</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Redis</span>
+          <span class="tag">REST API</span>
+        </div>
+        <img src="images/niyo-architecture.png" alt="Niyo Architecture">
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Supply Chain Management System</h3>
+            <div class="project-meta">
+              <span>⏱️ 2018 - 2019</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          End-to-end supply chain management platform for tracking inventory, orders, and shipments. 
+          Built event-driven architecture using Kafka for real-time updates and notifications. 
+          Integrated with third-party logistics providers via REST APIs.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Event-Driven</span>
+        </div>
+        <img src="images/supply-chain.png" alt="Supply Chain Dashboard">
+      </div>
+    </section>
 
   <!-- ARCHITECTURE -->
-  <section>
-    <h2>Architecture Thinking</h2>
-    <p>
-      Architecture is a decision, not a trend. I prioritize clarity,
-      ownership, and maintainability over premature complexity.
-    </p>
-    <div class="card">
-      <h3>Modulith vs Microservices</h3>
+    <section>
+      <h2>Architecture Philosophy</h2>
       <p>
-        A visual comparison showing when a well-structured modulith
-        outperforms microservices in real-world systems.
+        Architecture is a decision, not a trend. I prioritize clarity, ownership, and maintainability 
+        over premature complexity. The right architecture depends on team size, domain maturity, and 
+        operational capabilities.
       </p>
-      <img src="images/modulith-vs-microservices.png"
-           alt="Modulith vs Microservices Diagram">
-    </div>
-  </section>
+      <div class="card">
+        <h3>Modulith vs Microservices</h3>
+        <p>
+          A well-structured modulith can outperform microservices for many use cases. The key is 
+          understanding when to evolve from one to the other. Here's a visual comparison showing 
+          the trade-offs and decision factors.
+        </p>
+        <img src="images/modulith-vs-microservices.png" alt="Modulith vs Microservices Comparison">
+      </div>
+      <div class="card">
+        <h3>System Design Principles</h3>
+        <p>
+          Every system I build follows core principles: domain-driven design for clear boundaries, 
+          event-driven patterns for decoupling, defensive programming for resilience, and observability 
+          for operational excellence.
+        </p>
+        <img src="images/system-design.png" alt="System Design Principles">
+      </div>
+    </section>
 
-  <!-- LINKS -->
-  <section class="links">
-    <h2>Links</h2>
-    <a href="https://www.linkedin.com/in/abhishekrawat27/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/your-username" target="_blank">GitHub</a>
-  </section>
+    <!-- LINKS / CONTACT -->
+    <section id="contact">
+      <h2>Let's Connect</h2>
+      <p>I'm always interested in discussing backend architecture, system design, and engineering leadership.</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/abhishekrawat27/" target="_blank">
+          <span>🔗</span> LinkedIn
+        </a>
+        <a href="https://github.com/abhishekrawat27" target="_blank">
+          <span>💻</span> GitHub
+        </a>
+        <a href="mailto:abhishek@example.com">
+          <span>✉️</span> Email
+        </a>
+        <a href="../CV/CV_compressed.pdf" target="_blank">
+          <span>📄</span> Download CV
+        </a>
+      </div>
+    </section>
 
-  <footer>
-    © 2026 Abhishek Rawat · Built with simplicity
-  </footer>
+    <footer>
+      © 2026 Abhishek Rawat · Tech Lead & Backend Architect<br>
+      Built with passion for clean code and scalable systems
+    </footer>
 
 </div>
 </body>
