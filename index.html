@@ -807,10 +807,10 @@
         </div>
         <div class="hero-content">
           <div class="subtitle">Tech Lead / Backend Architect</div>
-          <h1>Building<br>Systems<br>That Scale</h1>
+          <h1>Backend<br>Systems<br>& Architecture</h1>
           <p class="hero-description">
-            I architect and build high-performance backend systems for fintech, healthcare, and enterprise platforms. 
-            Specializing in Java, Spring Boot, microservices architecture, and AI-augmented systems that serve millions.
+            I build backend systems for fintech, healthcare, and enterprise applications using Java and Spring Boot. 
+            Currently working on AI-powered enterprise tools and wrestling with the trade-offs between microservices complexity and monolith simplicity.
           </p>
           <div class="cta-buttons">
             <a href="#contact" class="btn btn-primary"><span>Get In Touch</span></a>
@@ -846,20 +846,19 @@
     <section>
       <h2>About</h2>
     <p>
-      I am a Tech Lead with 9+ years of experience building and evolving backend systems across 
-      fintech, digital banking, supply chain, healthcare, and enterprise platforms. I've led teams 
-      and architected solutions that serve millions of users.
+      I've spent the last 9+ years building backend systems across different industries—fintech payments, 
+      digital banking, hospital management, supply chain logistics. Started as a Java developer, now leading 
+      teams and making architectural decisions that I hope won't come back to haunt me.
     </p>
     <p>
-      My work focuses on backend architecture using Java and Spring Boot, making pragmatic decisions 
-      between microservices and modulith architectures based on domain maturity, team structure, and 
-      operational complexity. I believe in building systems that are maintainable, scalable, and 
-      aligned with business goals.
+      Most of my work is in the Java/Spring Boot ecosystem. I've built both microservices (way too many) 
+      and monoliths (disguised as "moduliths" to sound modern). The honest truth? Most projects don't need 
+      microservices until they actually do, and figuring out when is half the battle.
     </p>
     <p>
-      Recently, I've been building AI-augmented enterprise systems where LLMs are integrated responsibly 
-      with governance, access control, and structured data. I'm passionate about leveraging cutting-edge 
-      technology while maintaining engineering excellence.
+      These days I'm neck-deep in LLM integration work—building internal AI tools that actually respect 
+      data access rules and don't hallucinate policy violations. It's equal parts exciting and terrifying 
+      watching how fast this space moves.
     </p>
   </section>
 
@@ -964,10 +963,10 @@
           <div class="timeline-role">Enterprise AI & Backend Systems</div>
           <div class="timeline-description">
             <ul>
-              <li>Led development of enterprise AI assistant platform combining LLMs, RAG, and vector databases</li>
-              <li>Architected modulith-based systems serving 10,000+ internal users</li>
-              <li>Implemented role-based access control and governance for AI systems</li>
-              <li>Mentored team of 5 developers on backend best practices and system design</li>
+              <li>Built an internal AI chatbot that answers policy questions using RAG with OpenAI APIs and pgvector—trickiest part was keeping it from confidently giving wrong answers</li>
+              <li>Designed a Spring Boot modulith handling HR data queries with proper RBAC (learned the hard way that LLMs will happily ignore access rules if you don't build them into the retrieval layer)</li>
+              <li>Leading a small team through the chaos of integrating AI into traditional enterprise systems without breaking everything</li>
+              <li>Spending way too much time on prompt engineering and figuring out why the LLM thought our CEO was named "John Smith"</li>
             </ul>
           </div>
         </div>
@@ -978,10 +977,10 @@
           <div class="timeline-role">Fintech & Digital Banking</div>
           <div class="timeline-description">
             <ul>
-              <li>Built ACH payment platform processing $100M+ in transactions</li>
-              <li>Developed digital banking backend for mobile app with 500K+ users</li>
-              <li>Designed settlement and reconciliation systems for payment flows</li>
-              <li>Optimized database queries reducing response time by 60%</li>
+              <li>Built the backend for an ACH payment platform (US banking integrations are... interesting. So many edge cases.)</li>
+              <li>Worked on a digital banking app's API layer—account management, transactions, spending analytics, the usual fintech stuff</li>
+              <li>Designed payment settlement flows that had to handle failures gracefully because money disappearing is bad for business</li>
+              <li>Fixed some gnarly N+1 query problems that were killing response times. Hibernate lazy loading strikes again.</li>
             </ul>
           </div>
         </div>
@@ -992,10 +991,10 @@
           <div class="timeline-role">Supply Chain & Healthcare</div>
           <div class="timeline-description">
             <ul>
-              <li>Developed supply chain management systems for logistics companies</li>
-              <li>Built healthcare data integration platforms with HL7/FHIR standards</li>
-              <li>Implemented microservices architecture for scalable solutions</li>
-              <li>Collaborated with cross-functional teams on API design</li>
+              <li>Built inventory and logistics management systems (learned that container packing algorithms are deceptively complex)</li>
+              <li>Worked on healthcare data integration dealing with HL7 and FHIR standards—medical data formats are their own special nightmare</li>
+              <li>Helped migrate a massive hospital system from old JSP to React + Spring Boot (18 months of my life I'll never get back)</li>
+              <li>This is where I really learned Java and Spring Boot, mostly by breaking things in production and fixing them</li>
             </ul>
           </div>
         </div>
@@ -1017,13 +1016,13 @@
           </div>
         </div>
         <p>
-          Built an AI-driven inventory reconciliation tool mapping external order sheets to internal inventory systems.
+          Inventory reconciliation is a nightmare when vendors send Excel sheets with product names that never quite match your internal database. Built a tool to fix that using vector embeddings.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">How it works:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Normalized inconsistent data and stored semantic representations as vector embeddings</li>
-          <li>Enabled intelligent matching using similarity search</li>
-          <li>Significantly reduced manual reconciliation effort</li>
+          <li>Take messy vendor data ("Blue Widget XL" vs "Widget - Blue (Large)"), normalize it, embed it with OpenAI</li>
+          <li>Store embeddings in a vector database, do similarity search to find matches</li>
+          <li>Went from hours of manual matching to seconds. The ops team actually thanked me, which was nice.</li>
         </ul>
         <div class="card-tags">
           <span class="tag">AI</span>
@@ -1044,22 +1043,22 @@
           </div>
         </div>
         <p>
-          Internal enterprise AI system providing secure, role-aware access to company knowledge and data.
+          An internal chatbot system that actually respects who can see what data. Two major pieces:
         </p>
         
         <h4 style="font-size: 1rem; margin-top: 24px; margin-bottom: 12px; color: var(--text); font-weight: 600;">Policy Knowledge Chatbot (6 Months)</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Built an AI chatbot to answer queries on internal company policy documents</li>
-          <li>Implemented document ingestion, chunking, and semantic retrieval using OpenAI LLMs</li>
-          <li>Designed prompt strategies for accurate, contextual, and safe responses</li>
+          <li>Basically RAG—chunk policy docs, embed them with OpenAI, store in pgvector, retrieve relevant chunks, feed to GPT-4</li>
+          <li>The hard part wasn't the tech, it was tuning chunk sizes and retrieval thresholds so it doesn't give useless answers</li>
+          <li>Spent weeks on prompt engineering to stop it from making up policies that don't exist</li>
         </ul>
         
-        <h4 style="font-size: 1rem; margin-top: 20px; margin-bottom: 12px; color: var(--text); font-weight: 600;">Role-Based Database Chatbot (6 Months)</h4>
+        <h4 style="font-size: 1rem; margin-top: 20px; margin-bottom: 12px; color: var(--text); font-weight: 600;">Database Query Chatbot (6 Months)</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Developed a role-aware chatbot interacting with structured HR databases</li>
-          <li>Enforced role-based access control (RBAC) to protect sensitive data</li>
-          <li>Combined SQL-based data retrieval with LLM-generated natural language responses</li>
-          <li>Enabled secure conversational access to enterprise data with governance</li>
+          <li>This one talks to actual HR databases—user asks a question, LLM generates SQL (carefully), we execute it with their permissions</li>
+          <li>Had to build proper RBAC into the data layer because LLMs will happily try to query everything</li>
+          <li>It's scary how well GPT-4 can write SQL when you give it schema context. Also scary when it writes really bad SQL.</li>
+          <li>The combo of natural language + database queries is genuinely useful, but required a lot of safeguards</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Spring Boot</span>
@@ -1081,13 +1080,14 @@
           </div>
         </div>
         <p>
-          Key contributor to rebuilding a large Hospital Management System platform to migrate from JSP-based monolith to React + Spring Boot architecture.
+          Hospital management systems are huge, complex, and full of legacy code that nobody wants to touch. This one was running on JSP pages from 2010. The migration to React + Spring Boot took 18 months.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">What I worked on:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Re-architected backend services for better scalability, maintainability, and frontend decoupling</li>
-          <li>Designed APIs to support long-term extensibility and modern UI requirements</li>
-          <li>Supported smooth migration with minimal disruption to hospital operations</li>
+          <li>Rebuilt backend services piece by piece while the old system kept running (no "big bang" rewrites in healthcare)</li>
+          <li>Designed REST APIs that the React frontend could actually use without weird workarounds</li>
+          <li>Hospital workflows are... complicated. Every feature had 15 edge cases nobody remembered to document.</li>
+          <li>Learned more about medical billing, patient records, and lab integrations than I ever expected</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Spring Boot</span>
@@ -1108,13 +1108,14 @@
           </div>
         </div>
         <p>
-          Developed backend services for an algo trading platform built on Paytm Money broker APIs.
+          An algo trading platform where users define trading strategies and the system executes them automatically via Paytm Money's broker APIs. High stakes since it's people's actual money.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">What I built:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Enabled users to place automated trades based on predefined algorithms</li>
-          <li>Implemented secure integrations for order placement, execution tracking, and status updates</li>
-          <li>Focused on safe execution, reliability, and controlled automation</li>
+          <li>Backend for automated order placement based on user-defined algorithms (buy/sell triggers, stop-loss, etc.)</li>
+          <li>Integrated with Paytm Money's APIs for order execution, position tracking, and real-time status updates</li>
+          <li>Had to be really careful with error handling—accidentally buying 1000 shares instead of 100 is very bad</li>
+          <li>Learned that stock trading APIs have a lot of quirks and rate limits you don't expect</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Java</span>
@@ -1135,13 +1136,14 @@
           </div>
         </div>
         <p>
-          Core contributor to a US-based fintech payment platform enabling merchant-customer payments via ACH transfers.
+          A US fintech startup doing ACH payments between merchants and customers. Longest project I've worked on—2.5 years of payment flows, banking APIs, and state machines.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">What I did:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Designed and implemented payment, payout, settlement, and reconciliation lifecycles</li>
-          <li>Worked extensively on banking integrations, transaction state management, and failure handling</li>
-          <li>Built fault-tolerant workflows to ensure financial consistency and reliability</li>
+          <li>Built the payment processing pipeline: initiation → bank transfer → settlement → reconciliation. Lots of async workflows and state management.</li>
+          <li>Integrated with banking partner APIs (which had inconsistent error responses and required endless retry logic)</li>
+          <li>Dealt with every possible failure scenario: timeouts, network issues, partial transfers, duplicate requests, you name it</li>
+          <li>Learned that in fintech, money must always add up correctly. Spent many nights debugging why it didn't.</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Java</span>
@@ -1163,12 +1165,13 @@
           </div>
         </div>
         <p>
-          Developed a backend system to optimize container filling based on item volume, weight, and dimensions.
+          Logistics companies manually figured out how to pack containers to maximize space. This tool automated it using volume, weight, and dimension constraints. Turns out it's a bin-packing problem, which is NP-hard.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">The challenge:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Implemented algorithm-driven logic to maximize container utilization</li>
-          <li>Reduced manual planning effort and improved logistics efficiency</li>
+          <li>Implemented heuristic algorithms (couldn't solve it optimally—would take forever for real shipments)</li>
+          <li>Had to account for weight distribution, fragile items, and "this can't go next to that" rules</li>
+          <li>The algorithm wasn't perfect, but it beat manual planning and saved the ops team hours every week</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Java</span>
@@ -1189,13 +1192,14 @@
           </div>
         </div>
         <p>
-          Worked on backend systems for an Android-based digital banking application.
+          Digital banking app backend—accounts, transactions, statements, all the usual stuff. The interesting part was the spending analytics feature showing users where their money actually goes.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">What I built:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Built APIs for account management, transactions, statements, and expense analytics</li>
-          <li>Enabled backend support for graphs and insights showing user spending trends</li>
-          <li>Ensured high reliability and performance for banking-grade workloads</li>
+          <li>REST APIs for the Android app: checking balances, viewing transactions, downloading statements</li>
+          <li>Transaction categorization logic ("coffee shop" = food, "gas station" = transport, etc.) for spending insights</li>
+          <li>Backend for generating graphs showing monthly spending patterns—required some interesting SQL aggregations</li>
+          <li>Banking systems require paranoid levels of reliability. Every API call had retry logic, idempotency checks, and logging.</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Spring Boot</span>
@@ -1216,13 +1220,14 @@
           </div>
         </div>
         <p>
-          Built a license-based eBook selling platform with a proprietary desktop eReader application.
+          An eBook platform with DRM—users buy books, but can only read them in our custom desktop app. Had to build the licensing system to enforce that.
         </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">How it worked:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Implemented licensing logic ensuring purchased books could only be accessed through the platform's desktop app</li>
-          <li>Designed backend workflows for purchase validation, license enforcement, and reader authentication</li>
-          <li>Focused on content protection and controlled digital distribution</li>
+          <li>Backend handled purchases, generated user-specific licenses tied to their account</li>
+          <li>Desktop app checked license validity before opening books—basically "you bought it, prove it" logic</li>
+          <li>Had to handle license revocations, transfers, and edge cases like "user reinstalled Windows"</li>
+          <li>DRM is contentious, but publishers wouldn't distribute otherwise. Classic "business requirement" situation.</li>
         </ul>
         <div class="card-tags">
           <span class="tag">Java</span>
