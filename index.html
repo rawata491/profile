@@ -6,331 +6,490 @@
   <title>Abhishek Rawat | Tech Lead & Backend Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fffef9;
-      --bg-secondary: #faf8f3;
-      --text: #2d2d2d;
-      --muted: #6b6b6b;
-      --accent: #ff6b6b;
-      --accent-secondary: #4ecdc4;
-      --accent-hover: #ee5a52;
-      --card: #ffffff;
-      --border: #f0ede6;
-      --yellow: #ffe66d;
-      --teal: #4ecdc4;
-      --coral: #ff6b6b;
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f5;
+      --text: #0a0a0a;
+      --text-secondary: #666666;
+      --muted: #999999;
+      --accent: #7c3aed;
+      --accent-hover: #6d28d9;
+      --accent-light: rgba(124, 58, 237, 0.05);
+      --border: #e0e0e0;
+      --card: #fafafa;
+      --shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.8;
+      line-height: 1.6;
       overflow-x: hidden;
       font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 32px;
-      animation: fadeIn 0.8s ease;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
     }
 
     h1 {
-      font-size: 3.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 6rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin: 0;
       color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1.2;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-transform: uppercase;
     }
 
     h2 {
-      margin-top: 96px;
-      margin-bottom: 32px;
-      font-size: 1.75rem;
-      font-weight: 600;
-      position: relative;
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0 0 50px 0;
+      font-size: 3.5rem;
+      font-weight: 700;
       color: var(--text);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      text-transform: uppercase;
     }
 
     h2::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 3px;
-      background: var(--coral);
-      margin-bottom: 16px;
-      border-radius: 2px;
+      display: none;
     }
 
     h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 12px;
       color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     p {
-      color: var(--muted);
-      max-width: 780px;
+      color: var(--text-secondary);
+      max-width: none;
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
     }
 
     /* NAVIGATION */
     nav {
-      background: rgba(255, 254, 249, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--border);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
     }
 
     nav .nav-content {
-      max-width: 1100px;
-      margin: auto;
-      padding: 24px 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
     }
 
     nav .logo {
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.1rem;
       color: var(--text);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
 
     nav .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 40px;
+      flex-wrap: nowrap;
+      align-items: center;
     }
 
     nav a {
-      color: var(--muted);
+      color: var(--text-secondary);
       text-decoration: none;
-      transition: color 0.2s;
-      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     /* HERO */
     .hero {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin: 64px 0 80px 0;
-      padding: 0;
+      align-items: center;
+      justify-content: space-between;
+      padding: 140px 0 60px 0;
+      margin: 0;
       background: transparent;
       border: none;
       position: relative;
+      gap: 60px;
     }
 
     .hero-image-container {
-      margin-bottom: 32px;
+      margin-bottom: 0;
+      flex-shrink: 0;
     }
 
     .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      border-radius: 0;
       object-fit: cover;
-      border: 3px solid var(--coral);
+      border: 3px solid var(--text);
       display: block;
+      transition: all 0.4s ease;
+      filter: grayscale(100%);
+    }
+
+    .hero img:hover {
+      filter: grayscale(0%);
+      border-color: var(--accent);
     }
 
     .hero-content {
-      max-width: 680px;
+      max-width: 900px;
+      flex: 1;
     }
 
     .subtitle {
-      color: var(--muted);
+      color: var(--text-secondary);
       font-size: 1.1rem;
       font-weight: 500;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .hero-description {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin: 24px 0;
-      max-width: 600px;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin: 35px 0;
+      max-width: 700px;
+      line-height: 1.8;
     }
 
     .cta-buttons {
       display: flex;
-      gap: 16px;
-      margin-top: 24px;
+      gap: 20px;
+      margin-top: 50px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 12px 28px;
-      border-radius: 8px;
+      padding: 18px 40px;
+      border-radius: 0;
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
+      font-weight: 600;
+      transition: all 0.3s ease;
       display: inline-block;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: 'Space Grotesk', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn-primary {
-      background: var(--coral);
+      background: var(--accent);
       color: white;
+      border: 2px solid var(--accent);
     }
 
     .btn-primary span {
       position: relative;
+      z-index: 1;
     }
 
     .btn-primary:hover {
       background: var(--accent-hover);
-      transform: translateY(-1px);
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      border: 2px solid var(--border);
+      border: 2px solid var(--text);
       color: var(--text);
       background: transparent;
     }
 
     .btn-secondary span {
       position: relative;
+      z-index: 1;
     }
 
     .btn-secondary:hover {
-      border-color: var(--coral);
-      color: var(--coral);
+      background: var(--text);
+      color: var(--bg);
     }
 
     /* STATS */
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      margin: 48px 0;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .stat-card {
-      background: transparent;
-      padding: 24px 0;
-      border-radius: 0;
+      background: var(--bg);
+      padding: 50px 30px;
       border: none;
-      border-left: 3px solid var(--coral);
-      padding-left: 20px;
-      text-align: left;
-      transition: all 0.2s;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .stat-card::before {
+      display: none;
+    }
+
+    .stat-card:hover {
+      background: var(--bg-secondary);
+      transform: none;
+    }
+
+    .stat-card:hover::before {
+      display: none;
+    }
+      width: 4px;
+      height: 100%;
+      background: var(--coral);
+      filter: blur(8px);
+      opacity: 0.6;
+      transition: all 0.3s ease;
     }
 
     .stat-card:hover {
       border-left-color: var(--teal);
-      transform: translateX(4px);
+      transform: translateX(6px);
+    }
+
+    .stat-card:hover::before {
+      background: var(--teal);
+      filter: blur(12px);
+      opacity: 0.8;
     }
 
     .stat-number {
-      font-size: 2.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4rem;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
     }
 
     .stat-label {
-      color: var(--muted);
-      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
     }
 
     /* SKILLS */
     .skills-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 0;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .skill-category {
-      background: transparent;
-      padding: 0;
-      border-radius: 0;
+      background: var(--bg);
+      padding: 40px;
       border: none;
-      margin-bottom: 32px;
+      margin-bottom: 0;
+      transition: background 0.3s ease;
+    }
+
+    .skill-category:hover {
+      background: var(--bg-secondary);
     }
 
     .skill-category h4 {
       color: var(--text);
-      margin-bottom: 16px;
-      font-size: 1rem;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .chip {
-      padding: 8px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 6px;
+      padding: 10px 18px;
+      border: 1px solid var(--border);
+      border-radius: 0;
       font-size: 0.85rem;
       font-weight: 500;
-      background: white;
+      background: var(--bg-secondary);
       color: var(--text);
-      transition: all 0.2s;
+      transition: all 0.2s ease;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .chip:hover {
-      border-color: var(--coral);
-      color: var(--coral);
-      transform: translateY(-1px);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: none;
     }
 
     /* CARDS */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 24px;
-      transition: all 0.2s;
+      border-radius: 0;
+      padding: 40px;
+      margin-bottom: 1px;
+      transition: all 0.3s ease;
     }
 
     .card:hover {
-      border-color: var(--coral);
-      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: var(--bg-secondary);
+      transform: none;
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: start;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .card-tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      margin-top: 24px;
     }
 
     .tag {
-      padding: 4px 12px;
+      padding: 6px 14px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -354,22 +513,28 @@
     .project-meta {
       display: flex;
       gap: 24px;
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 0.9rem;
+      margin-top: 20px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .project-meta span {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
+      font-weight: 500;
     }
 
     /* TIMELINE */
     .timeline {
       position: relative;
-      padding-left: 32px;
-      margin-top: 32px;
+      padding-left: 60px;
+      margin-top: 0;
     }
 
     .timeline::before {
@@ -378,57 +543,84 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 2px;
+      width: 3px;
       background: var(--border);
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 48px;
+      margin-bottom: 60px;
       background: transparent;
       padding: 0;
-      border-radius: 0;
       border: none;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
     }
 
     .timeline-item:hover {
-      transform: translateX(4px);
+      transform: none;
+    }
+
+    .timeline-item:hover::before {
+      background: var(--accent);
+      transform: none;
     }
 
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -38px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      background: var(--coral);
+      left: -66px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--text);
       border: 3px solid var(--bg);
-      border-radius: 50%;
+      border-radius: 0;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:first-child::before {
+      background: var(--accent);
+      animation: none;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+      }
     }
 
     .timeline-date {
-      color: var(--coral);
-      font-size: 0.85rem;
+      color: var(--accent);
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .timeline-company {
-      font-size: 1.15rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .timeline-role {
-      color: var(--muted);
-      margin-bottom: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
 
     .timeline-description {
-      color: var(--muted);
+      color: var(--text-secondary);
       font-size: 0.95rem;
     }
 
@@ -444,62 +636,115 @@
     /* LINKS */
     .links {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       flex-wrap: wrap;
+      margin-top: 50px;
     }
 
     .links a {
-      padding: 12px 24px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
+      padding: 18px 36px;
+      border: 2px solid var(--border);
+      border-radius: 0;
       color: var(--text);
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
+      font-weight: 600;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
+      gap: 12px;
+      font-size: 0.9rem;
+      background: transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     .links a:hover {
-      border-color: var(--coral);
-      color: var(--coral);
-      transform: translateY(-1px);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: none;
     }
 
     footer {
-      margin-top: 100px;
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
+      margin-top: 0;
+      padding: 60px 0;
+      border-top: 3px solid var(--border);
       text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      background: transparent;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
     }
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.2rem;
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .container {
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 60px 0;
       }
 
       .hero {
+        min-height: auto;
         text-align: left;
-        padding: 0;
+        padding: 100px 0 40px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .hero-image-container {
+        align-self: flex-start;
       }
 
       .hero img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
       }
 
       .cta-buttons {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      nav .nav-content {
+        padding: 24px;
       }
 
       nav .nav-links {
@@ -507,15 +752,32 @@
       }
 
       .timeline {
-        padding-left: 24px;
+        padding-left: 40px;
+      }
+
+      .timeline-item {
+        margin-bottom: 60px;
       }
 
       .stats {
         grid-template-columns: 1fr;
+        gap: 1px;
       }
 
-      .container {
-        padding: 40px 20px;
+      .stat-card {
+        padding: 40px 24px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-category {
+        padding: 40px 24px;
+      }
+
+      .card {
+        padding: 32px 24px;
       }
     }
   </style>
@@ -525,7 +787,7 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="nav-content">
-      <div class="logo">AR</div>
+      <div class="logo">ABHISHEK RAWAT</div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -538,24 +800,26 @@
   </nav>
 
   <div class="container">
-    <!-- HERO -->
     <section class="hero" id="about">
-      <div class="hero-image-container">
-        <img src="images/profile.jpg" alt="Abhishek Rawat">
-      </div>
-      <div class="hero-content">
-        <h1>Abhishek Rawat</h1>
-        <div class="subtitle">Tech Lead · Backend Architect · System Designer</div>
-        <p class="hero-description">
-          I design and build scalable backend systems that power fintech, healthcare, and enterprise platforms.
-          With 9+ years of experience, I specialize in Java, Spring Boot, microservices architecture, and AI-augmented systems.
-        </p>
-        <div class="cta-buttons">
-          <a href="#contact" class="btn btn-primary"><span>Get In Touch</span></a>
-          <a href="#projects" class="btn btn-secondary"><span>View Projects</span></a>
+      <div class="container" style="display: flex; align-items: center; gap: 80px; width: 100%;">
+        <div class="hero-image-container">
+          <img src="images/profile.jpg" alt="Abhishek Rawat">
+        </div>
+        <div class="hero-content">
+          <div class="subtitle">Tech Lead / Backend Architect</div>
+          <h1>Building<br>Systems<br>That Scale</h1>
+          <p class="hero-description">
+            I architect and build high-performance backend systems for fintech, healthcare, and enterprise platforms. 
+            Specializing in Java, Spring Boot, microservices architecture, and AI-augmented systems that serve millions.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary"><span>Get In Touch</span></a>
+            <a href="#projects" class="btn btn-secondary"><span>View Work</span></a>
+          </div>
         </div>
       </div>
     </section>
+  </div>
 
     <!-- STATS -->
     <section class="stats">
@@ -577,9 +841,10 @@
       </div>
     </section>
 
+  <div class="container">
     <!-- ABOUT -->
     <section>
-      <h2>About Me</h2>
+      <h2>About</h2>
     <p>
       I am a Tech Lead with 9+ years of experience building and evolving backend systems across 
       fintech, digital banking, supply chain, healthcare, and enterprise platforms. I've led teams 
@@ -603,45 +868,66 @@
       <h2>Technical Skills</h2>
       <div class="skills-container">
         <div class="skill-category">
-          <h4>Backend & Languages</h4>
+          <h4>Backend & APIs</h4>
           <div class="skills">
             <span class="chip">Java</span>
             <span class="chip">Spring Boot</span>
-            <span class="chip">Spring Framework</span>
-            <span class="chip">REST APIs</span>
-            <span class="chip">GraphQL</span>
-            <span class="chip">Node.js</span>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h4>Architecture & Design</h4>
-          <div class="skills">
+            <span class="chip">Hibernate</span>
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">RESTful APIs</span>
             <span class="chip">Microservices</span>
             <span class="chip">Modulith</span>
-            <span class="chip">System Design</span>
-            <span class="chip">Domain-Driven Design</span>
-            <span class="chip">Event-Driven</span>
           </div>
         </div>
         <div class="skill-category">
-          <h4>AI & ML</h4>
+          <h4>AI / LLM & Data</h4>
           <div class="skills">
+            <span class="chip">OpenAI APIs</span>
             <span class="chip">LLMs</span>
+            <span class="chip">Prompt Engineering</span>
             <span class="chip">RAG</span>
-            <span class="chip">Vector Databases</span>
-            <span class="chip">OpenAI API</span>
-            <span class="chip">LangChain</span>
+            <span class="chip">pgvector</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">SQLite</span>
           </div>
         </div>
         <div class="skill-category">
-          <h4>Data & Infrastructure</h4>
+          <h4>Frontend</h4>
+          <div class="skills">
+            <span class="chip">React.js</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Databases</h4>
           <div class="skills">
             <span class="chip">PostgreSQL</span>
+            <span class="chip">MySQL</span>
             <span class="chip">MongoDB</span>
-            <span class="chip">Redis</span>
-            <span class="chip">Kafka</span>
-            <span class="chip">AWS</span>
+            <span class="chip">SQLite</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>Architecture & Engineering</h4>
+          <div class="skills">
+            <span class="chip">System Design</span>
+            <span class="chip">Modulith Design</span>
+            <span class="chip">Event-Driven</span>
+            <span class="chip">Microservices</span>
+            <span class="chip">Performance Optimization</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>DevOps & Cloud</h4>
+          <div class="skills">
             <span class="chip">Docker</span>
+            <span class="chip">CI/CD</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Azure</span>
+            <span class="chip">AWS</span>
           </div>
         </div>
       </div>
@@ -651,26 +937,19 @@
     <section id="education">
       <h2>Education</h2>
       <div class="card">
-        <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--text);">Bachelor of Technology in Computer Science</h3>
-        <div style="color: var(--coral); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">2012 - 2016</div>
-        <div style="color: var(--muted); font-size: 0.95rem; margin-bottom: 12px;">University Name | Location</div>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Graduated with Honors | CGPA: 8.5/10</li>
-          <li>Specialization in Software Engineering and Database Systems</li>
-          <li>Final Year Project: Cloud-based E-commerce Platform using Java and Spring Framework</li>
-          <li>Relevant Coursework: Data Structures, Algorithms, Database Management, Software Architecture, Operating Systems</li>
-        </ul>
+        <h3 style="font-size: 1.2rem; margin-bottom: 12px; color: var(--text);">Bachelor of Technology (B.Tech) – Computer Science</h3>
+        <div style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">Dr. A. P. J. Abdul Kalam Technical University (AKTU)</div>
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
     <section id="certifications">
-      <h2>Certifications & Training</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 24px;">
-        <div class="card" style="padding: 24px;">
-          <h4 style="font-size: 1rem; margin-bottom: 8px; color: var(--text);">Microsoft Azure AI Fundamentals (AI-900)</h4>
-          <div style="color: var(--coral); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px;">Microsoft | 2024</div>
-          <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">AI concepts, machine learning, and Azure AI services</p>
+      <h2>Certifications</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; margin-top: 0; background: var(--border); border: 1px solid var(--border);">
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="font-size: 1rem; margin-bottom: 12px; color: var(--text);">Microsoft Azure AI Fundamentals (AI-900)</h4>
+          <div style="color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Microsoft | 2024</div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">AI concepts, machine learning, and Azure AI services</p>
         </div>
       </div>
     </section>
@@ -730,162 +1009,27 @@
       <div class="card">
         <div class="card-header">
           <div>
-            <h3>EPrabhat — Digital Publishing Platform</h3>
+            <h3>SB Inventory — AI Inventory Mapping Tool</h3>
             <div class="project-meta">
-              <span>⏱️ 6 Months</span>
-              <span>📚 DRM Platform</span>
+              <span>⏱️ 2 Months</span>
+              <span>🤖 AI Automation</span>
             </div>
           </div>
         </div>
         <p>
-          Built a license-based eBook selling platform with a proprietary desktop eReader application.
+          Built an AI-driven inventory reconciliation tool mapping external order sheets to internal inventory systems.
         </p>
         <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Implemented licensing logic ensuring purchased books could only be accessed through the platform's desktop app</li>
-          <li>Designed backend workflows for purchase validation, license enforcement, and reader authentication</li>
-          <li>Focused on content protection and controlled digital distribution</li>
+          <li>Normalized inconsistent data and stored semantic representations as vector embeddings</li>
+          <li>Enabled intelligent matching using similarity search</li>
+          <li>Significantly reduced manual reconciliation effort</li>
         </ul>
         <div class="card-tags">
-          <span class="tag">Java</span>
-          <span class="tag">DRM</span>
-          <span class="tag">Licensing</span>
-          <span class="tag">eBook</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>Niyo App — Digital Banking Platform</h3>
-            <div class="project-meta">
-              <span>⏱️ 1.5 Years</span>
-              <span>🏦 Digital Banking</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Worked on backend systems for an Android-based digital banking application.
-        </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Built APIs for account management, transactions, statements, and expense analytics</li>
-          <li>Enabled backend support for graphs and insights showing user spending trends</li>
-          <li>Ensured high reliability and performance for banking-grade workloads</li>
-        </ul>
-        <div class="card-tags">
-          <span class="tag">Spring Boot</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Banking</span>
-          <span class="tag">Analytics</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>COT — Container Optimization Tool</h3>
-            <div class="project-meta">
-              <span>⏱️ 6 Months</span>
-              <span>📦 Supply Chain</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Developed a backend system to optimize container filling based on item volume, weight, and dimensions.
-        </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Implemented algorithm-driven logic to maximize container utilization</li>
-          <li>Reduced manual planning effort and improved logistics efficiency</li>
-        </ul>
-        <div class="card-tags">
-          <span class="tag">Java</span>
-          <span class="tag">Algorithms</span>
-          <span class="tag">Optimization</span>
-          <span class="tag">Logistics</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>LinkPay — ACH Payments Platform</h3>
-            <div class="project-meta">
-              <span>⏱️ 2.5 Years</span>
-              <span>💰 US Fintech</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Core contributor to a US-based fintech payment platform enabling merchant-customer payments via ACH transfers.
-        </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Designed and implemented payment, payout, settlement, and reconciliation lifecycles</li>
-          <li>Worked extensively on banking integrations, transaction state management, and failure handling</li>
-          <li>Built fault-tolerant workflows to ensure financial consistency and reliability</li>
-        </ul>
-        <div class="card-tags">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">ACH</span>
-          <span class="tag">Banking APIs</span>
-          <span class="tag">Fintech</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>Algotic — Algorithmic Trading Platform</h3>
-            <div class="project-meta">
-              <span>⏱️ 6 Months</span>
-              <span>📈 Trading</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Developed backend services for an algo trading platform built on Paytm Money broker APIs.
-        </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Enabled users to place automated trades based on predefined algorithms</li>
-          <li>Implemented secure integrations for order placement, execution tracking, and status updates</li>
-          <li>Focused on safe execution, reliability, and controlled automation</li>
-        </ul>
-        <div class="card-tags">
-          <span class="tag">Java</span>
-          <span class="tag">Trading APIs</span>
+          <span class="tag">AI</span>
+          <span class="tag">Vector Embeddings</span>
+          <span class="tag">Similarity Search</span>
           <span class="tag">Automation</span>
-          <span class="tag">Fintech</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>Taiba — HMS Migration Project</h3>
-            <div class="project-meta">
-              <span>⏱️ 1.5 Years</span>
-              <span>🏥 Healthcare</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Key contributor to rebuilding a large Hospital Management System platform to migrate from JSP-based monolith to React + Spring Boot architecture.
-        </p>
-        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
-        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Re-architected backend services for better scalability, maintainability, and frontend decoupling</li>
-          <li>Designed APIs to support long-term extensibility and modern UI requirements</li>
-          <li>Supported smooth migration with minimal disruption to hospital operations</li>
-        </ul>
-        <div class="card-tags">
-          <span class="tag">Spring Boot</span>
-          <span class="tag">React</span>
-          <span class="tag">Migration</span>
-          <span class="tag">Healthcare</span>
         </div>
       </div>
 
@@ -929,27 +1073,162 @@
       <div class="card">
         <div class="card-header">
           <div>
-            <h3>SB Inventory — AI Inventory Mapping Tool</h3>
+            <h3>Taiba — HMS Migration Project</h3>
             <div class="project-meta">
-              <span>⏱️ 2 Months</span>
-              <span>🤖 AI Automation</span>
+              <span>⏱️ 1.5 Years</span>
+              <span>🏥 Healthcare</span>
             </div>
           </div>
         </div>
         <p>
-          Built an AI-driven inventory reconciliation tool mapping external order sheets to internal inventory systems.
+          Key contributor to rebuilding a large Hospital Management System platform to migrate from JSP-based monolith to React + Spring Boot architecture.
         </p>
         <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
         <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
-          <li>Normalized inconsistent data and stored semantic representations as vector embeddings</li>
-          <li>Enabled intelligent matching using similarity search</li>
-          <li>Significantly reduced manual reconciliation effort</li>
+          <li>Re-architected backend services for better scalability, maintainability, and frontend decoupling</li>
+          <li>Designed APIs to support long-term extensibility and modern UI requirements</li>
+          <li>Supported smooth migration with minimal disruption to hospital operations</li>
         </ul>
         <div class="card-tags">
-          <span class="tag">AI</span>
-          <span class="tag">Vector Embeddings</span>
-          <span class="tag">Similarity Search</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">React</span>
+          <span class="tag">Migration</span>
+          <span class="tag">Healthcare</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Algotic — Algorithmic Trading Platform</h3>
+            <div class="project-meta">
+              <span>⏱️ 6 Months</span>
+              <span>📈 Trading</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Developed backend services for an algo trading platform built on Paytm Money broker APIs.
+        </p>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
+          <li>Enabled users to place automated trades based on predefined algorithms</li>
+          <li>Implemented secure integrations for order placement, execution tracking, and status updates</li>
+          <li>Focused on safe execution, reliability, and controlled automation</li>
+        </ul>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Trading APIs</span>
           <span class="tag">Automation</span>
+          <span class="tag">Fintech</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>LinkPay — ACH Payments Platform</h3>
+            <div class="project-meta">
+              <span>⏱️ 2.5 Years</span>
+              <span>💰 US Fintech</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Core contributor to a US-based fintech payment platform enabling merchant-customer payments via ACH transfers.
+        </p>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
+          <li>Designed and implemented payment, payout, settlement, and reconciliation lifecycles</li>
+          <li>Worked extensively on banking integrations, transaction state management, and failure handling</li>
+          <li>Built fault-tolerant workflows to ensure financial consistency and reliability</li>
+        </ul>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">ACH</span>
+          <span class="tag">Banking APIs</span>
+          <span class="tag">Fintech</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>COT — Container Optimization Tool</h3>
+            <div class="project-meta">
+              <span>⏱️ 6 Months</span>
+              <span>📦 Supply Chain</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Developed a backend system to optimize container filling based on item volume, weight, and dimensions.
+        </p>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
+          <li>Implemented algorithm-driven logic to maximize container utilization</li>
+          <li>Reduced manual planning effort and improved logistics efficiency</li>
+        </ul>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Optimization</span>
+          <span class="tag">Logistics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Niyo App — Digital Banking Platform</h3>
+            <div class="project-meta">
+              <span>⏱️ 1.5 Years</span>
+              <span>🏦 Digital Banking</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Worked on backend systems for an Android-based digital banking application.
+        </p>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
+          <li>Built APIs for account management, transactions, statements, and expense analytics</li>
+          <li>Enabled backend support for graphs and insights showing user spending trends</li>
+          <li>Ensured high reliability and performance for banking-grade workloads</li>
+        </ul>
+        <div class="card-tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Banking</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>EPrabhat — Digital Publishing Platform</h3>
+            <div class="project-meta">
+              <span>⏱️ 6 Months</span>
+              <span>📚 DRM Platform</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          Built a license-based eBook selling platform with a proprietary desktop eReader application.
+        </p>
+        <h4 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text);">Key Responsibilities:</h4>
+        <ul style="color: var(--muted); margin: 0; padding-left: 20px;">
+          <li>Implemented licensing logic ensuring purchased books could only be accessed through the platform's desktop app</li>
+          <li>Designed backend workflows for purchase validation, license enforcement, and reader authentication</li>
+          <li>Focused on content protection and controlled digital distribution</li>
+        </ul>
+        <div class="card-tags">
+          <span class="tag">Java</span>
+          <span class="tag">DRM</span>
+          <span class="tag">Licensing</span>
+          <span class="tag">eBook</span>
         </div>
       </div>
     </section>
@@ -994,8 +1273,8 @@
           <h4 style="font-size: 0.9rem; margin-bottom: 12px; color: var(--text); font-weight: 600;">Contact</h4>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <a href="mailto:rawata491@gmail.com" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">rawata491@gmail.com</a>
-            <a href="tel:+1234567890" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">+1 (234) 567-890</a>
-            <div style="color: var(--muted); font-size: 0.9rem;">Location, Country</div>
+            <a href="tel:+918860384024" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">+91 8860384024</a>
+            <div style="color: var(--muted); font-size: 0.9rem;">Ghaziabad, UP, India</div>
           </div>
         </div>
       </div>
