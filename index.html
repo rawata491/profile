@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhishek Rawat | Tech Lead</title>
+
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 64px 24px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 56px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero {
+      margin-bottom: 56px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      background: var(--card);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      animation: slideUp 0.8s ease;
+    }
+
+    .project h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .project p {
+      margin: 0;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 16px;
+      margin-top: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Abhishek Rawat</h1>
+      <div class="subtitle">
+        Tech Lead · Backend & System Architecture
+      </div>
+      <p>
+        I design and own backend systems that prioritize clarity,
+        scalability, and long-term maintainability.
+      </p>
+
+      <div class="skills">
+        <span class="chip">Java</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">Backend Architecture</span>
+        <span class="chip">Microservices</span>
+        <span class="chip">Modulith</span>
+        <span class="chip">LLMs</span>
+        <span class="chip">RAG</span>
+        <span class="chip">Vector Databases</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>About</h2>
+      <p>
+        Tech Lead with 9+ years of experience building backend systems across
+        fintech, digital banking, supply chain, healthcare, and enterprise
+        platforms. I focus on architectural decision-making using Java and
+        Spring Boot, choosing between microservices and modulith designs based
+        on real production constraints.
+      </p>
+      <p>
+        I also build AI-augmented enterprise systems where LLMs are integrated
+        responsibly with proper access control and governance.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <h2>Selected Work</h2>
+
+      <div class="project">
+        <h3>Interne — Enterprise AI Assistant</h3>
+        <p>
+          Internal AI system for policy documents and HR data using LLMs,
+          RAG, vector databases, and role-based access control.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>LinkPay — ACH Payments Platform</h3>
+        <p>
+          Backend systems for US fintech payments covering transaction,
+          payout, settlement, and reconciliation lifecycles.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Niyo App — Digital Banking Backend</h3>
+        <p>
+          Backend services for accounts, transactions, statements,
+          and expense analytics for a mobile banking platform.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Taiba — HMS Migration</h3>
+        <p>
+          Migration of a hospital management system from JSP monolith
+          to Spring Boot and React-based architecture.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section>
+      <h2>Architecture Thinking</h2>
+      <p>
+        Architecture is a decision, not a trend. I choose modulith or
+        microservices based on domain maturity, team structure, and
+        operational reality—optimizing for ownership and maintainability.
+      </p>
+    </section>
+
+    <!-- LINKS -->
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://www.linkedin.com/in/abhishekrawat27/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/your-username" target="_blank">GitHub</a>
+    </section>
+
+    <footer>
+      © 2026 Abhishek Rawat · Built with simplicity
+    </footer>
+
+  </div>
+</body>
+</html>
