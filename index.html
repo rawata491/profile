@@ -15,21 +15,17 @@
       --border: #e5e7eb;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                    Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 980px;
       margin: auto;
       padding: 64px 24px;
       animation: fadeIn 1s ease;
@@ -38,30 +34,42 @@
     h1 {
       font-size: 2.4rem;
       margin-bottom: 8px;
-      letter-spacing: -0.5px;
     }
 
     h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 56px;
-      margin-bottom: 16px;
+      margin-top: 72px;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
     }
 
     p {
       color: var(--muted);
-      max-width: 720px;
+      max-width: 780px;
     }
 
+    /* HERO */
     .hero {
-      margin-bottom: 56px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
 
     .subtitle {
-      font-size: 1.05rem;
       color: var(--muted);
+      font-size: 1.05rem;
     }
 
+    /* SKILLS */
     .skills {
       display: flex;
       flex-wrap: wrap;
@@ -70,53 +78,45 @@
     }
 
     .chip {
-      padding: 6px 12px;
+      padding: 6px 14px;
       border: 1px solid var(--border);
       border-radius: 20px;
       font-size: 0.85rem;
       background: var(--card);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .chip:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .project {
+    /* CARDS */
+    .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      animation: slideUp 0.8s ease;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .project h3 {
-      margin-top: 0;
-      margin-bottom: 6px;
-      font-size: 1.05rem;
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.04);
     }
 
-    .project p {
-      margin: 0;
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
     }
 
+    /* LINKS */
     .links a {
-      display: inline-block;
-      margin-right: 16px;
-      margin-top: 12px;
+      margin-right: 18px;
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
 
-    .links a:hover {
-      text-decoration: underline;
-    }
-
     footer {
-      margin-top: 80px;
+      margin-top: 100px;
       font-size: 0.85rem;
       color: var(--muted);
     }
@@ -126,24 +126,22 @@
       to { opacity: 1; }
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <section class="hero">
+  <!-- HERO -->
+  <section class="hero">
+    <img src="images/profile.jpg" alt="Abhishek Rawat">
+    <div>
       <h1>Abhishek Rawat</h1>
       <div class="subtitle">
         Tech Lead · Backend & System Architecture
@@ -156,89 +154,96 @@
       <div class="skills">
         <span class="chip">Java</span>
         <span class="chip">Spring Boot</span>
-        <span class="chip">Backend Architecture</span>
         <span class="chip">Microservices</span>
         <span class="chip">Modulith</span>
+        <span class="chip">System Design</span>
         <span class="chip">LLMs</span>
         <span class="chip">RAG</span>
         <span class="chip">Vector Databases</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section>
-      <h2>About</h2>
+  <!-- ABOUT -->
+  <section>
+    <h2>About</h2>
+    <p>
+      I am a Tech Lead with 9+ years of experience building and evolving
+      backend systems across fintech, digital banking, supply chain,
+      healthcare, and enterprise platforms.
+    </p>
+    <p>
+      My work focuses on backend architecture using Java and Spring Boot,
+      making pragmatic decisions between microservices and modulith
+      architectures based on domain maturity, team structure, and
+      operational complexity.
+    </p>
+    <p>
+      Recently, I’ve been building AI-augmented enterprise systems where
+      LLMs are integrated responsibly with governance, access control,
+      and structured data.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>Selected Work</h2>
+
+    <div class="card">
+      <h3>Interne — Enterprise AI Assistant</h3>
       <p>
-        Tech Lead with 9+ years of experience building backend systems across
-        fintech, digital banking, supply chain, healthcare, and enterprise
-        platforms. I focus on architectural decision-making using Java and
-        Spring Boot, choosing between microservices and modulith designs based
-        on real production constraints.
+        Internal AI platform for policy documents and HR systems,
+        combining LLMs, RAG, vector databases, and role-based access control.
       </p>
+      <img src="images/interne-architecture.png" alt="Interne Architecture">
+    </div>
+
+    <div class="card">
+      <h3>LinkPay — ACH Payments Platform</h3>
       <p>
-        I also build AI-augmented enterprise systems where LLMs are integrated
-        responsibly with proper access control and governance.
+        Backend systems for US fintech payments, covering transaction,
+        payout, settlement, and reconciliation lifecycles.
       </p>
-    </section>
+    </div>
 
-    <!-- PROJECTS -->
-    <section>
-      <h2>Selected Work</h2>
-
-      <div class="project">
-        <h3>Interne — Enterprise AI Assistant</h3>
-        <p>
-          Internal AI system for policy documents and HR data using LLMs,
-          RAG, vector databases, and role-based access control.
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>LinkPay — ACH Payments Platform</h3>
-        <p>
-          Backend systems for US fintech payments covering transaction,
-          payout, settlement, and reconciliation lifecycles.
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Niyo App — Digital Banking Backend</h3>
-        <p>
-          Backend services for accounts, transactions, statements,
-          and expense analytics for a mobile banking platform.
-        </p>
-      </div>
-
-      <div class="project">
-        <h3>Taiba — HMS Migration</h3>
-        <p>
-          Migration of a hospital management system from JSP monolith
-          to Spring Boot and React-based architecture.
-        </p>
-      </div>
-    </section>
-
-    <!-- ARCHITECTURE -->
-    <section>
-      <h2>Architecture Thinking</h2>
+    <div class="card">
+      <h3>Niyo App — Digital Banking Backend</h3>
       <p>
-        Architecture is a decision, not a trend. I choose modulith or
-        microservices based on domain maturity, team structure, and
-        operational reality—optimizing for ownership and maintainability.
+        Backend services for accounts, transactions, statements,
+        and expense analytics for a mobile banking platform.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- LINKS -->
-    <section class="links">
-      <h2>Links</h2>
-      <a href="https://www.linkedin.com/in/abhishekrawat27/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/your-username" target="_blank">GitHub</a>
-    </section>
+  <!-- ARCHITECTURE -->
+  <section>
+    <h2>Architecture Thinking</h2>
+    <p>
+      Architecture is a decision, not a trend. I prioritize clarity,
+      ownership, and maintainability over premature complexity.
+    </p>
+    <div class="card">
+      <h3>Modulith vs Microservices</h3>
+      <p>
+        A visual comparison showing when a well-structured modulith
+        outperforms microservices in real-world systems.
+      </p>
+      <img src="images/modulith-vs-microservices.png"
+           alt="Modulith vs Microservices Diagram">
+    </div>
+  </section>
 
-    <footer>
-      © 2026 Abhishek Rawat · Built with simplicity
-    </footer>
+  <!-- LINKS -->
+  <section class="links">
+    <h2>Links</h2>
+    <a href="https://www.linkedin.com/in/abhishekrawat27/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/your-username" target="_blank">GitHub</a>
+  </section>
 
-  </div>
+  <footer>
+    © 2026 Abhishek Rawat · Built with simplicity
+  </footer>
+
+</div>
 </body>
 </html>
